@@ -13,12 +13,13 @@ current_hashes = {}                                     # Dictionary to store cu
 jira_url = "https://mondebooks.atlassian.net"
 jira_proj_key = "KAN"
 jira_user = "mondebooks@gmail.com"
-jira_api = "ATATT3xFfGF0qQh-UWjd_tspgObVcbbA7CvYtY4oVDbpfUNdFeMrPaFxNyPYsEDEDIEarHCfpzVojdQOpWmxi5vRX-Id_xCJZq3FslcQ_hmoLUeDjfC1GFFpHvvPWO8UloFJhMkWGve0bXSntAdDHRb-zcbbHyMI7HfHaIjUGQa3mnL9vNXBNK8=3CE86BB6"
+jira_api = os.environ.get('JIRA_API')
+print(jira_api)
 
 # Function to list all files in a directory and calculate their hashes
 def list_files(path):
     files = os.listdir(path)
-    print(path)
+
     for file in files:
         file_path = os.path.join(path, file)
         if os.path.isdir(file_path):                    # Skip directories
